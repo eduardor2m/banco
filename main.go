@@ -1,19 +1,24 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
 
-type CurrentAccount struct {
-	holder        string
-	agencyNumber  int
-	accountNumber int
-	balance       float64
-}
+	"github.com/eduardor2m/banco/accounts"
+	"github.com/eduardor2m/banco/customers"
+)
 
 func main() {
-	accountJohn := CurrentAccount{"John", 589, 123456, 125.50}
-	accountElon := CurrentAccount{"Elon", 678, 192345, 10234.50}
+	accountExemple := accounts.CurrentAccount{}
 
-	fmt.Println(accountJohn)
-	fmt.Println(accountElon)
+	accountExemple.Holder = customers.Customer{
+		Name:       "Eduardo",
+		CPF:        "123.456.789-10",
+		Profession: "Developer",
+	}
+
+	accountExemple.Deposit(100)
+	accountExemple.Withdraw(50)
+
+	fmt.Println(accountExemple.GetBalance())
 
 }
