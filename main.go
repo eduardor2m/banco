@@ -2,15 +2,18 @@ package main
 
 import "fmt"
 
-func main() {
-	var titular string = "Elon Musk"
-	var numeroAgencia int = 123
-	var numeroConta int = 123456
-	var saldo float64 = 1000.50
+type CurrentAccount struct {
+	holder        string
+	agencyNumber  int
+	accountNumber int
+	balance       float64
+}
 
-	fmt.Println("Titular: ", titular)
-	fmt.Println("Agencia: ", numeroAgencia)
-	fmt.Println("Conta: ", numeroConta)
-	fmt.Println("Saldo: ", saldo)
+func main() {
+	accountJohn := CurrentAccount{"John", 589, 123456, 125.50}
+	accountElon := CurrentAccount{"Elon", 678, 192345, 10234.50}
+
+	fmt.Println(accountJohn)
+	fmt.Println(accountElon)
 
 }
