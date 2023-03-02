@@ -4,21 +4,27 @@ import (
 	"fmt"
 
 	"github.com/eduardor2m/banco/accounts"
-	"github.com/eduardor2m/banco/customers"
 )
 
+func payBill(account verifyAccount, value float64) {
+	account.Withdraw(value)
+}
+
+type verifyAccount interface {
+	Withdraw(value float64) string
+}
+
 func main() {
-	accountExemple := accounts.CurrentAccount{}
+	accountDudu := accounts.SavingsAccount{}
+	accountDudu.Deposit(100)
+	payBill(&accountDudu, 60)
 
-	accountExemple.Holder = customers.Customer{
-		Name:       "Eduardo",
-		CPF:        "123.456.789-10",
-		Profession: "Developer",
-	}
+	fmt.Println(accountDudu.GetBalance())
 
-	accountExemple.Deposit(100)
-	accountExemple.Withdraw(50)
+	accountRicardo := accounts.CurrentAccount{}
+	accountRicardo.Deposit(700)
+	payBill(&accountRicardo, -360)
 
-	fmt.Println(accountExemple.GetBalance())
+	fmt.Println(accountRicardo.GetBalance())
 
 }
