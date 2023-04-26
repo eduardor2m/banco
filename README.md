@@ -39,6 +39,8 @@ Para sair do SQLite, utilize o seguinte comando:
 .quit
 ```
 
+# SQLite
+
 ### Selecionando colunas de uma tabela:
 Suponha que temos uma tabela chamada clientes com as colunas id, nome, idade, email, cidade e estado. Queremos selecionar apenas as colunas nome e cidade da tabela:
 
