@@ -38,3 +38,31 @@ Para sair do SQLite, utilize o seguinte comando:
 ```sql
 .quit
 ```
+
+### Selecionando colunas de uma tabela:
+Suponha que temos uma tabela chamada clientes com as colunas id, nome, idade, email, cidade e estado. Queremos selecionar apenas as colunas nome e cidade da tabela:
+
+```sql
+SELECT nome, cidade FROM clientes;
+```
+
+### Selecionando linhas de uma tabela:
+Suponha que queremos selecionar apenas os clientes com idade maior ou igual a 30 anos:
+
+```sql
+SELECT * FROM clientes WHERE idade >= 30;
+```
+
+### Ordenando os resultados:
+Suponha que queremos selecionar os clientes da tabela clientes ordenados por idade de forma decrescente:
+
+```sql
+SELECT * FROM clientes ORDER BY idade DESC;
+```
+
+### Fazendo junções de tabelas:
+Suponha que temos duas tabelas: clientes e pedidos, onde a tabela pedidos tem as colunas id, id_cliente, produto, quantidade e preco. Queremos selecionar os nomes dos clientes e os produtos que eles compraram:
+
+```sql
+SELECT clientes.nome, pedidos.produto FROM clientes JOIN pedidos ON clientes.id = pedidos.id_cliente;
+```
